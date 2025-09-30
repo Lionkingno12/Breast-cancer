@@ -1,7 +1,7 @@
 import numpy as np
 import copy
 x_axis=np.array([[2],[15],[20],[49],[59],[78],[61],[43],[49],[56]])
-y_axis=np.array([0,0,0,0,1,1,1,1,0,1])
+y_axis=np.array([0,0,0,0,1,1,1,0,0,1])
 w=np.zeros(x_axis.shape[1])
 # sigmoid function to convert the lenear to more better graph
 def sigmoid(z):
@@ -44,4 +44,12 @@ w_final,b_final=gradient_desent(w,0,x_axis,y_axis,1000,0.001)
 print("final w: ",w_final,"final b: ",b_final)
 print("Final cost: ",function_cost(x_axis,w_final,b_final,y_axis))
 e=func(w_final,b_final)
+if sigmoid(e)>0.50:
+    print("yes")
+elif sigmoid(e)<0.50:
+    print("No")
+else:
+    print(50-50)
+result=int(sigmoid(e)[0]*100)
+print(f"breast chances : {(result)}%")
 print("your prediction is : ",sigmoid(e))
